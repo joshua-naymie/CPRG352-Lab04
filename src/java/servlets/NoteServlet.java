@@ -80,14 +80,7 @@ public class NoteServlet extends HttpServlet
         FileWriter writer = new FileWriter(textFile);
         
         writer.write(note.getTitle() + "\n");
-        
-        String content = note.getContent();
-        
-        content = content.replace("\n", "<br>").replace("\r", "<br>");
-        
-        System.out.println(content);
-        
-        writer.write(content);
+        writer.write(note.getHtmlContent());
         writer.close();
         
         //request.setAttribute("note", note);
